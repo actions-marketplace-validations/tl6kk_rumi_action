@@ -55,8 +55,8 @@ reader = FileReader(
 )
 print(target_files)
 print(target_files.split(","))
-for file in target_files.split(","):
-    reader.add_target(file)
+for fname in target_files.split(","):
+    reader.add_target(fname)
 
 commits = reader.parse_history()
 
