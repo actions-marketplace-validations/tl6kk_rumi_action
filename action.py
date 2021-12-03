@@ -48,8 +48,8 @@ reader = FileReader(
     repo_path=repo_path,
     branch=branch,
     langs=langs,
-    content_paths=content_paths,
-    extensions=extensions,
+    content_paths=content_paths.split(","),
+    extensions=extensions.split(","),
     pattern=pattern,
     src_lang=src_lang
 )

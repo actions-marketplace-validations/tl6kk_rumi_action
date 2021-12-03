@@ -19,12 +19,12 @@ inputs:
 
   content_paths:
     required: false
-    default: "[content]"
+    default: "content"
     description: Paths from the root of the repository to the directory that contains contents for translation
 
   extensions:
     required: false
-    default: "[.md]"
+    default: ".md"
     description: Extensions of the target files for translation monitoring. 
 
   target_files:
