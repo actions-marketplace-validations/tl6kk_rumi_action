@@ -53,8 +53,7 @@ reader = FileReader(
     pattern=pattern,
     src_lang=src_lang
 )
-print(reader.targets)
-for file in target_files:
+for file in target_files.split(","):
     reader.add_target(file)
 
 commits = reader.parse_history()
