@@ -20,8 +20,14 @@ from git import repo
 
 from rumi.file_rumi.reader import FileReader
 from rumi.file_rumi.reporter import FileReporter
+from rumi.msg_rumi.reader import MsgReader
+from rumi.msg_rumi.reporter import MsgReporter
 
 # Get args from environemt variables as defined in action.yaml
+
+# Which rumi: file-based or msg-based
+which_rumi = os.environ["INPUT_WHICH_RUMI"]
+
 # For file_rumi.reader
 repo_path = os.environ["INPUT_REPO_PATH"]
 branch = os.environ["INPUT_BRANCH"]
@@ -43,15 +49,37 @@ details_mode = os.environ["INPUT_DETAILS_MODE"]
 # File_rumi Action
 ##########################################################################
 
+if which_rumi == "file":
 
-reader = FileReader(
-    repo_path=repo_path,
-    branch=branch,
-    langs=langs,
-    content_paths=content_paths.split(","),
-    extensions=extensions.split(","),
-    pattern=pattern,
-    src_lang=src_lang
+    reader = FileReader(
+        repo_path=repo_path,
+        branch=branch,
+        langs=langs,
+        content_paths=content_paths.split(","),
+        extensions=extensions.split(","),
+        pattern=pattern,
+        src_lang=src_lang
+    )
+
+    reporter = FileReporter(
+    repo_path=reader.repo_path,
+    src_lang=detail_src_lang,
+    tgt_lang=detail_tgt_lang
+)
+
+else:
+    reader = MsgReader(
+        repo_path=repo_path,
+        branch=branch,
+        content_paths=content_paths.split(","),
+        extensions=extensions.split(","),
+        src_lang=src_lang
+    )
+
+    reporter = MsgReporter(
+    repo_path=reader.repo_path,
+    src_lang=detail_src_lang,
+    tgt_lang=detail_tgt_lang
 )
 
 for fname in target_files.split(","):
@@ -63,13 +91,6 @@ for f in reader.targets:
     print(f)
 
 commits = reader.parse_history()
-
-
-reporter = FileReporter(
-    repo_path=reader.repo_path,
-    src_lang=detail_src_lang,
-    tgt_lang=detail_tgt_lang
-)
 
 if stats_mode:
     stats = reporter.get_stats(commits)
