@@ -26,7 +26,7 @@ from rumi.file_rumi.reporter import FileReporter
 repo_path = os.environ["INPUT_REPO_PATH"]
 branch = os.environ["INPUT_BRANCH"]
 content_paths = os.environ["INPUT_CONTENT_PATHS"]
-extensions = os.environ["INPUT_EXTENTIONS"]
+extensions = os.environ["INPUT_EXTENSIONS"]
 target_files = os.environ["INPUT_TARGET_FILES"]
 pattern = os.environ["INPUT_PATTERN"]
 langs = os.environ["INPUT_LANGS"]
