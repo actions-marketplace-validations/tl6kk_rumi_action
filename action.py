@@ -53,8 +53,7 @@ reader = FileReader(
     pattern=pattern,
     src_lang=src_lang
 )
-print(target_files)
-print(target_files.split(","))
+
 for fname in target_files.split(","):
     reader.add_target(fname)
 
