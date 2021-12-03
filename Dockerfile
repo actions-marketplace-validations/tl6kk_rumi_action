@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install -r requirements/requirements.txt
 
-CMD ["python", "./action.py"]
+CMD ["python", "/rumi/action.py"]
