@@ -128,7 +128,7 @@ class BaseReader:
                     # Create the Path from the file relative to the repo_path
                     path = root.joinpath(dir, fname).relative_to(self.repo_path)
 
-                    self.targets.add(path)
+                    self.targets.add(str(path))
                     return
 
         raise Exception("Please provide a valid file name")
