@@ -77,4 +77,4 @@ if stats_mode:
 
 if details_mode:
     details = reporter.get_details(commits)
-    reporter.print_details(stats)
+    reporter.print_details(details)
