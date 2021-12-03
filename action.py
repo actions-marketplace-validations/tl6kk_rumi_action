@@ -59,6 +59,9 @@ for fname in target_files.split(","):
 
 reader.del_target(fname)
 
+for f in reader.targets:
+    print(f)
+
 commits = reader.parse_history()
 
 

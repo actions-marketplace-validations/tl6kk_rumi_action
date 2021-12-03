@@ -216,6 +216,7 @@ class FileReporter:
         the count of words in the source file.
         """
         data = []
+        print(details)
         for row in details:
             if (self.src_lang == "" or self.src_lang == row["src_lang"]) and (
                 self.tgt_lang == "" or self.tgt_lang == row["tgt_lang"]
