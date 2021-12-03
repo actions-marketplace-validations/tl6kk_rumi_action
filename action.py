@@ -30,7 +30,7 @@ extensions = os.environ["INPUT_EXTENSIONS"]
 target_files = os.environ["INPUT_TARGET_FILES"]
 pattern = os.environ["INPUT_PATTERN"]
 langs = os.environ["INPUT_LANGS"]
-src_lang = os.environ["INPUT_SRC_LANGS"]
+src_lang = os.environ["INPUT_SRC_LANG"]
 
 # For file_rumi.reporter
 detail_src_lang = os.environ["INPUT_DETAIL_SRC_LANG"]
