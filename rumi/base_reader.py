@@ -159,6 +159,8 @@ class BaseReader:
             Validated repository path.
         """
         repo_path = Path(repo_path)
+
+        repo_path.resolve()
         
         if (not repo_path.exists()) or (not repo_path.is_dir()):
             raise Exception("Please specify a valid repository path")
