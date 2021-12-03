@@ -4,6 +4,6 @@ WORKDIR /rumi
 
 COPY . .
 
-RUN pip install -r requirements/requirements.txt
+RUN pip install rumi-i18n
 
 CMD ["python", "/rumi/action.py"]
