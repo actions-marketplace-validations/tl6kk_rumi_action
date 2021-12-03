@@ -115,7 +115,7 @@ class BaseReader:
         """
         Look for the path to the target_fname and add it to self.targets.
         """
-        for root, dirs, files in os.walk(self.repo_path.resolve(), topdown=True):
+        for root, dirs, files in os.walk(".", topdown=True):
             # Ignore hidden directories, e.g. things like .git or .github
             dirs[:] = [d for d in dirs if not self.is_hidden(d)]
 
@@ -160,8 +160,6 @@ class BaseReader:
         """
         repo_path = Path(repo_path)
         
-        repo_path.resolve()
-
         if (not repo_path.exists()) or (not repo_path.is_dir()):
             raise Exception("Please specify a valid repository path")
 
