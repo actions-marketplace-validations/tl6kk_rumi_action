@@ -123,6 +123,7 @@ class BaseReader:
             root = Path(root)
 
             for fname in files:
+                print(fname, target_fname)
                 if fname == target_fname:
 
                     # Create the Path from the file relative to the repo_path

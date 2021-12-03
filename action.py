@@ -53,11 +53,12 @@ reader = FileReader(
     pattern=pattern,
     src_lang=src_lang
 )
-
+print(reader.targets)
 for file in target_files:
     reader.add_target(file)
 
 commits = reader.parse_history()
+
 
 reporter = FileReporter(
     repo_path=reader.repo_path,
