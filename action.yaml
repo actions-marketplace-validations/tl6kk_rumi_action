@@ -4,6 +4,10 @@ name: file-rumi
 description: This action monitors file-based translation status of static site projects
 
 inputs:
+  repo-token:
+    required: true
+    description: 'The GITHUB_TOKEN secret'
+
   repo_path:
     required: true
     description: Path to the repository for translation monitoring.
