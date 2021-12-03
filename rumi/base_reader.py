@@ -115,7 +115,7 @@ class BaseReader:
         """
         Look for the path to the target_fname and add it to self.targets.
         """
-        for root, dirs, files in os.walk(".", topdown=True):
+        for root, dirs, files in os.walk(self.repo_path, topdown=True):
             # Ignore hidden directories, e.g. things like .git or .github
             dirs[:] = [d for d in dirs if not self.is_hidden(d)]
 
@@ -126,7 +126,7 @@ class BaseReader:
                 if fname == target_fname:
 
                     # Create the Path from the file relative to the repo_path
-                    path = root.joinpath(dir, fname).relative_to(self.repo_path)
+                    path = root.joinpath(fname).relative_to(self.repo_path)
 
                     self.targets.add(str(path))
                     return
